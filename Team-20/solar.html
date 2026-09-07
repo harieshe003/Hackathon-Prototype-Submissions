@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Solaris | Solar Savings Calculator</title>
+
+    <meta
+        name="description"
+        content="Estimate solar generation, electricity savings, payback period and long-term solar ROI."
+    >
+
+    <link rel="stylesheet" href="solarstyle.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="#" class="brand">
+
+            <span class="brand-icon">
+                ☀
+            </span>
+
+            <span>
+                SOLAR<span>IS</span>
+            </span>
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="#calculator">
+                Calculator
+            </a>
+
+            <a href="#how-it-works">
+                How it works
+            </a>
+
+            <a href="#benefits">
+                Benefits
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </nav>
+
+
+        <a href="#calculator" class="nav-button">
+            Get Estimate
+            <span>→</span>
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-container">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                SMART SOLAR PLANNING
+            </div>
+
+
+            <h1>
+
+                Know your solar
+                <br>
+
+                <span>potential.</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Discover how much electricity your solar system
+                could generate, how much you could save, and
+                when your investment could pay for itself.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a
+                    href="#calculator"
+                    class="primary-button"
+                >
+                    Calculate My Savings
+                    <span>→</span>
+                </a>
+
+
+                <a
+                    href="#how-it-works"
+                    class="secondary-button"
+                >
+                    See how it works
+                </a>
+
+            </div>
+
+
+            <div class="hero-trust">
+
+                <div class="trust-item">
+
+                    <strong>
+                        25+
+                    </strong>
+
+                    <span>
+                        Year projection
+                    </span>
+
+                </div>
+
+
+                <div class="trust-divider"></div>
+
+
+                <div class="trust-item">
+
+                    <strong>
+                        100%
+                    </strong>
+
+                    <span>
+                        Instant calculation
+                    </span>
+
+                </div>
+
+
+                <div class="trust-divider"></div>
+
+
+                <div class="trust-item">
+
+                    <strong>
+                        ₹
+                    </strong>
+
+                    <span>
+                        India-ready
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-visual">
+
+            <div class="sun-glow"></div>
+
+
+            <div class="solar-house">
+
+                <div class="house-roof">
+
+                    <div class="panel-grid">
+
+                        <div class="panel"></div>
+                        <div class="panel"></div>
+                        <div class="panel"></div>
+                        <div class="panel"></div>
+
+                        <div class="panel"></div>
+                        <div class="panel"></div>
+                        <div class="panel"></div>
+                        <div class="panel"></div>
+
+                        <div class="panel"></div>
+                        <div class="panel"></div>
+                        <div class="panel"></div>
+                        <div class="panel"></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="house-body">
+
+                    <div class="window">
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="door"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="floating-card generation-card">
+
+                <div class="floating-icon">
+                    ☀
+                </div>
+
+                <div>
+
+                    <small>
+                        Estimated generation
+                    </small>
+
+                    <strong id="heroGeneration">
+                        4,380 kWh
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="floating-card savings-card">
+
+                <div class="floating-icon green">
+                    ₹
+                </div>
+
+                <div>
+
+                    <small>
+                        Potential annual savings
+                    </small>
+
+                    <strong id="heroSavings">
+                        ₹32,850
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-bottom-line"></div>
+
+</section>
+
+
+<!-- =========================================================
+     CALCULATOR
+========================================================= -->
+
+<section
+    class="calculator-section"
+    id="calculator"
+>
+
+    <div class="section-container">
+
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                SOLAR CALCULATOR
+            </div>
+
+            <h2>
+                See what solar could do
+                <br>
+                <span>for your property.</span>
+            </h2>
+
+            <p>
+                Enter a few details about your electricity usage
+                and proposed solar system to get an instant estimate.
+            </p>
+
+        </div>
+
+
+        <div class="calculator-layout">
+
+
+            <!-- INPUT PANEL -->
+
+            <div class="calculator-panel input-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="panel-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Your electricity
+                        </h3>
+
+                    </div>
+
+                    <span class="panel-status">
+                        REQUIRED
+                    </span>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="monthlyUsage">
+                        Monthly electricity consumption
+                    </label>
+
+                    <div class="input-box">
+
+                        <input
+                            type="number"
+                            id="monthlyUsage"
+                            value="500"
+                            min="1"
+                        >
+
+                        <span>
+                            kWh / month
+                        </span>
+
+                    </div>
+
+                    <p class="field-help">
+                        You can find this on your monthly electricity bill.
+                    </p>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="tariff">
+                        Average electricity tariff
+                    </label>
+
+                    <div class="input-box">
+
+                        <span class="input-prefix">
+                            ₹
+                        </span>
+
+                        <input
+                            type="number"
+                            id="tariff"
+                            value="7.5"
+                            min="0"
+                            step="0.1"
+                        >
+
+                        <span>
+                            / kWh
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel-divider"></div>
+
+
+                <div class="panel-header solar-panel-header">
+
+                    <div>
+
+                        <span class="panel-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Your solar system
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="systemSize">
+                        Solar system capacity
+                    </label>
+
+                    <div class="input-box">
+
+                        <input
+                            type="number"
+                            id="systemSize"
+                            value="3"
+                            min="0.1"
+                            step="0.1"
+                        >
+
+                        <span>
+                            kW
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="two-column">
+
+                    <div class="form-group">
+
+                        <label for="installationCost">
+                            Installation cost
+                        </label>
+
+                        <div class="input-box">
+
+                            <span class="input-prefix">
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="installationCost"
+                                value="150000"
+                                min="0"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="subsidy">
+                            Subsidy / incentive
+                        </label>
+
+                        <div class="input-box">
+
+                            <span class="input-prefix">
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="subsidy"
+                                value="30000"
+                                min="0"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="generationFactor">
+
+                        Average solar yield
+
+                        <span
+                            class="info-icon"
+                            title="Estimated average daily electricity generated by 1 kW of installed solar capacity."
+                        >
+                            i
+                        </span>
+
+                    </label>
+
+                    <div class="input-box">
+
+                        <input
+                            type="number"
+                            id="generationFactor"
+                            value="4"
+                            min="1"
+                            max="8"
+                            step="0.1"
+                        >
+
+                        <span>
+                            kWh / kW / day
+                        </span>
+
+                    </div>
+
+                    <p class="field-help">
+                        Use a local estimate for more accurate results.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="calculate-button"
+                    onclick="calculateSavings()"
+                >
+
+                    <span>
+                        Calculate my solar savings
+                    </span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <p class="calculation-note">
+
+                    Estimates are indicative and actual results
+                    may vary based on location, weather, shading,
+                    system design and electricity tariffs.
+
+                </p>
+
+            </div>
+
+
+            <!-- RESULTS PANEL -->
+
+            <div class="calculator-panel result-panel">
+
+                <div class="result-top">
+
+                    <div>
+
+                        <span class="panel-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Your estimated impact
+                        </h3>
+
+                    </div>
+
+
+                    <div class="live-indicator">
+
+                        <span></span>
+
+                        LIVE ESTIMATE
+
+                    </div>
+
+                </div>
+
+
+                <div class="main-result">
+
+                    <div class="result-main-number">
+
+                        <span id="annualGeneration">
+                            4,380
+                        </span>
+
+                        <small>
+                            kWh / year
+                        </small>
+
+                    </div>
+
+                    <p>
+                        Estimated annual solar generation
+                    </p>
+
+                </div>
+
+
+                <div class="results-grid">
+
+
+                    <div class="metric-card">
+
+                        <div class="metric-icon">
+                            ₹
+                        </div>
+
+                        <span>
+                            Annual savings
+                        </span>
+
+                        <strong id="annualSavings">
+                            ₹32,850
+                        </strong>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <div class="metric-icon">
+                            %
+                        </div>
+
+                        <span>
+                            Energy offset
+                        </span>
+
+                        <strong id="energyOffset">
+                            73.0%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <div class="metric-icon">
+                            ↗
+                        </div>
+
+                        <span>
+                            Payback period
+                        </span>
+
+                        <strong id="paybackPeriod">
+                            3.7 yrs
+                        </strong>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <div class="metric-icon">
+                            CO₂
+                        </div>
+
+                        <span>
+                            CO₂ avoided / year
+                        </span>
+
+                        <strong id="co2Savings">
+                            3.6 t
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="investment-summary">
+
+                    <div class="summary-heading">
+
+                        <span>
+                            INVESTMENT SUMMARY
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-line">
+
+                        <span>
+                            Installation cost
+                        </span>
+
+                        <strong id="summaryCost">
+                            ₹1,50,000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-line">
+
+                        <span>
+                            Subsidy / incentive
+                        </span>
+
+                        <strong
+                            class="subsidy-value"
+                            id="summarySubsidy"
+                        >
+                            − ₹30,000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-line net-line">
+
+                        <span>
+                            Estimated net investment
+                        </span>
+
+                        <strong id="netInvestment">
+                            ₹1,20,000
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="result-message">
+
+                    <span class="message-icon">
+                        ✓
+                    </span>
+
+                    <p>
+                        Your solar system could offset a significant
+                        portion of your annual electricity consumption.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     KEY NUMBERS
+========================================================= -->
+
+<section class="numbers-section">
+
+    <div class="section-container">
+
+        <div class="numbers-grid">
+
+
+            <div class="number-item">
+
+                <span class="number-icon">
+                    ☀
+                </span>
+
+                <div>
+
+                    <strong id="lifetimeGeneration">
+                        109,500
+                    </strong>
+
+                    <span>
+                        kWh lifetime generation
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="number-item">
+
+                <span class="number-icon">
+                    ₹
+                </span>
+
+                <div>
+
+                    <strong id="lifetimeSavings">
+                        ₹8.2L
+                    </strong>
+
+                    <span>
+                        estimated 25-year savings
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="number-item">
+
+                <span class="number-icon">
+                    ♻
+                </span>
+
+                <div>
+
+                    <strong id="lifetimeCO2">
+                        89.8 t
+                    </strong>
+
+                    <span>
+                        CO₂ emissions avoided
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="number-item">
+
+                <span class="number-icon">
+                    ⚡
+                </span>
+
+                <div>
+
+                    <strong id="systemCapacityDisplay">
+                        3 kW
+                    </strong>
+
+                    <span>
+                        recommended system size
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CHART
+========================================================= -->
+
+<section class="projection-section">
+
+    <div class="section-container">
+
+
+        <div class="projection-header">
+
+            <div>
+
+                <div class="section-label">
+                    LONG-TERM OUTLOOK
+                </div>
+
+                <h2>
+                    Your 25-year
+                    <span>financial projection.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="projection-info">
+
+                <span class="projection-dot"></span>
+
+                Based on current assumptions
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-card">
+
+            <div class="chart-summary">
+
+                <div>
+
+                    <span>
+                        CUMULATIVE NET SAVINGS
+                    </span>
+
+                    <strong id="chartFinalValue">
+                        ₹7.0L
+                    </strong>
+
+                </div>
+
+
+                <div class="chart-legend">
+
+                    <span class="legend-line"></span>
+
+                    Cumulative savings
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-wrapper">
+
+                <canvas id="savingsChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HOW IT WORKS
+========================================================= -->
+
+<section
+    class="how-section"
+    id="how-it-works"
+>
+
+    <div class="section-container">
+
+
+        <div class="section-heading centered">
+
+            <div class="section-label">
+                HOW IT WORKS
+            </div>
+
+            <h2>
+                From electricity bill
+                <br>
+                <span>to solar insight.</span>
+            </h2>
+
+            <p>
+                A simple four-step process designed to help
+                you understand your solar opportunity.
+            </p>
+
+        </div>
+
+
+        <div class="steps-grid">
+
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <div class="step-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Enter your usage
+                </h3>
+
+                <p>
+                    Tell us how much electricity you typically
+                    consume each month and your average tariff.
+                </p>
+
+            </div>
+
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <div class="step-icon">
+                    ☀
+                </div>
+
+                <h3>
+                    Define your system
+                </h3>
+
+                <p>
+                    Enter your planned solar capacity,
+                    installation cost and available incentive.
+                </p>
+
+            </div>
+
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <div class="step-icon">
+                    ◉
+                </div>
+
+                <h3>
+                    Calculate potential
+                </h3>
+
+                <p>
+                    Our calculator estimates generation,
+                    savings, energy offset and payback.
+                </p>
+
+            </div>
+
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <div class="step-icon">
+                    ↗
+                </div>
+
+                <h3>
+                    Plan with confidence
+                </h3>
+
+                <p>
+                    Use the long-term projection to understand
+                    the potential financial impact of going solar.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     BENEFITS
+========================================================= -->
+
+<section
+    class="benefits-section"
+    id="benefits"
+>
+
+    <div class="section-container">
+
+
+        <div class="benefits-layout">
+
+
+            <div class="benefits-content">
+
+                <div class="section-label">
+                    WHY SOLAR
+                </div>
+
+                <h2>
+                    More than lower
+                    <span>electricity bills.</span>
+                </h2>
+
+                <p>
+                    Solar is a long-term energy investment.
+                    Understand the financial and environmental
+                    impact before you make a decision.
+                </p>
+
+
+                <div class="benefit-list">
+
+
+                    <div class="benefit-row">
+
+                        <div class="benefit-check">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Reduce electricity costs
+                            </strong>
+
+                            <p>
+                                Generate your own electricity
+                                and reduce dependence on grid power.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="benefit-row">
+
+                        <div class="benefit-check">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Build long-term savings
+                            </strong>
+
+                            <p>
+                                Solar can continue producing electricity
+                                for decades after installation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="benefit-row">
+
+                        <div class="benefit-check">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Lower your carbon footprint
+                            </strong>
+
+                            <p>
+                                Replacing grid electricity with solar
+                                can reduce associated emissions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="impact-card">
+
+                <div class="impact-circle">
+
+                    <span>
+                        ☀
+                    </span>
+
+                </div>
+
+
+                <div class="impact-content">
+
+                    <span>
+                        YOUR POTENTIAL IMPACT
+                    </span>
+
+                    <strong id="impactCO2">
+                        89.8 tonnes
+                    </strong>
+
+                    <p>
+                        estimated CO₂ emissions avoided
+                        over 25 years.
+                    </p>
+
+                </div>
+
+
+                <div class="impact-bottom">
+
+                    <div>
+
+                        <strong>
+                            25
+                        </strong>
+
+                        <span>
+                            years
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            365
+                        </strong>
+
+                        <span>
+                            days / year
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            24/7
+                        </strong>
+
+                        <span>
+                            monitoring potential
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta-section">
+
+    <div class="cta-container">
+
+        <div class="cta-content">
+
+            <div class="cta-sun">
+                ☀
+            </div>
+
+            <div>
+
+                <span>
+                    READY TO EXPLORE YOUR SOLAR POTENTIAL?
+                </span>
+
+                <h2>
+                    Start with a number.
+                    <br>
+                    <em>Make it a decision.</em>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="#calculator"
+            class="cta-button"
+        >
+            Calculate My Savings
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer
+    class="footer"
+    id="about"
+>
+
+    <div class="section-container">
+
+
+        <div class="footer-top">
+
+
+            <div class="footer-brand">
+
+                <a href="#" class="brand footer-logo">
+
+                    <span class="brand-icon">
+                        ☀
+                    </span>
+
+                    <span>
+                        SOLAR<span>IS</span>
+                    </span>
+
+                </a>
+
+                <p>
+                    A smarter way to understand the financial
+                    and environmental potential of solar energy.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Explore
+                </h4>
+
+                <a href="#calculator">
+                    Calculator
+                </a>
+
+                <a href="#how-it-works">
+                    How it works
+                </a>
+
+                <a href="#benefits">
+                    Benefits
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Calculator
+                </h4>
+
+                <a href="#calculator">
+                    Solar generation
+                </a>
+
+                <a href="#calculator">
+                    Annual savings
+                </a>
+
+                <a href="#calculator">
+                    Payback period
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    About
+                </h4>
+
+                <a href="#about">
+                    About Solaris
+                </a>
+
+                <a href="#calculator">
+                    Get an estimate
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Solaris. All rights reserved.
+            </span>
+
+            <span>
+                Solar estimates are indicative only.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="solarscript.js"></script>
+
+</body>
+</html>
