@@ -1,5 +1,6 @@
 # Team 13
 
-Project Title:
-Team Leader:
-Team Members:
+Project Title: EcoLens
+Team Leader: Harini M
+Team Members: Dhanya Shree G
+              Dhiwin Prabha R

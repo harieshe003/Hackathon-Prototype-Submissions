@@ -1,0 +1,453 @@
+/* assets/css/style.css - EcoLens Primary Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --eco-green: #18A957;
+  --deep-green: #087C55;
+  --teal: #008C95;
+  --ocean-blue: #087CA3;
+  --deep-navy: #063B5C;
+  --dark-text: #102A32;
+  --bg-color: #F7FBF9;
+  --white: #FFFFFF;
+  --eco-surface: #EDF8F3;
+  --border-color: #D1EBE1;
+  --muted-text: #5A7780;
+  
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  
+  --shadow-sm: 0 2px 8px rgba(6, 59, 92, 0.04);
+  --shadow-md: 0 8px 24px rgba(6, 59, 92, 0.08);
+  --shadow-lg: 0 16px 40px rgba(6, 59, 92, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  background-image: url('../images/bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--dark-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--deep-navy);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--teal);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--deep-green);
+}
+
+/* Navbar */
+.navbar-ecolens {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.8rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+}
+
+.nav-link-ecolens {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--dark-text);
+  margin: 0 0.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+.nav-link-ecolens:hover, .nav-link-ecolens.active {
+  color: var(--eco-green);
+  background: var(--eco-surface);
+}
+
+/* Buttons */
+.btn-ecolens-primary {
+  background: linear-gradient(135deg, var(--eco-green) 0%, var(--deep-green) 100%);
+  color: var(--white) !important;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius-full);
+  border: none;
+  box-shadow: 0 4px 14px rgba(24, 169, 87, 0.3);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-ecolens-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(24, 169, 87, 0.4);
+}
+
+.btn-ecolens-secondary {
+  background: var(--eco-surface);
+  color: var(--deep-navy) !important;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-ecolens-secondary:hover {
+  background: var(--white);
+  border-color: var(--teal);
+  color: var(--teal) !important;
+}
+
+/* Hero & Lens Visualizer */
+.hero-section {
+  padding: 4rem 1.5rem 5rem 1.5rem;
+  background: rgba(247, 251, 249, 0.75);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-surface {
+  background: rgba(237, 248, 243, 0.65) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--deep-navy);
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.hero-title span {
+  color: var(--eco-green);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--muted-text);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Interactive Lens & Rotating Globe Container */
+.lens-container {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dashed Circular Orbit Track */
+.lens-orbit-track {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px dashed rgba(13, 148, 136, 0.35);
+  box-shadow: 0 0 20px rgba(13, 148, 136, 0.1);
+  pointer-events: none;
+}
+
+/* Central Globe & Score Overlay */
+.central-globe-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.center-globe-img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: globeRotate 45s linear infinite;
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.35), 0 0 70px rgba(13, 148, 136, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.85);
+}
+
+.globe-overlay-score {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.lens-score-val {
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--deep-navy);
+  line-height: 0.9;
+  margin: 2px 0;
+}
+
+.lens-score-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--eco-green);
+}
+
+/* 5 Thinai Orbiting Group around the Globe */
+.thinai-orbit-group {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -150px;
+  animation: thinaiOrbit 22s linear infinite;
+  z-index: 10;
+}
+
+.thinai-orbit-slot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+/* Spaced at 72° increments (360/5) with 150px orbital radius */
+.slot-1 { transform: rotate(0deg) translateY(-150px); }
+.slot-2 { transform: rotate(72deg) translateY(-150px); }
+.slot-3 { transform: rotate(144deg) translateY(-150px); }
+.slot-4 { transform: rotate(216deg) translateY(-150px); }
+.slot-5 { transform: rotate(288deg) translateY(-150px); }
+
+/* Counter rotation for each slot badge so text stays horizontal */
+.slot-1 .thinai-pill { animation: counterRotateSlot1 22s linear infinite; }
+.slot-2 .thinai-pill { animation: counterRotateSlot2 22s linear infinite; }
+.slot-3 .thinai-pill { animation: counterRotateSlot3 22s linear infinite; }
+.slot-4 .thinai-pill { animation: counterRotateSlot4 22s linear infinite; }
+.slot-5 .thinai-pill { animation: counterRotateSlot5 22s linear infinite; }
+
+/* Thinai Landscape Badges */
+.thinai-pill {
+  position: absolute;
+  top: -18px;
+  left: -50px;
+  width: 100px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--deep-navy);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.thinai-pill:hover {
+  transform: scale(1.15) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+}
+
+.thinai-pill.kurinji  { border-left: 4px solid #7c3aed; }
+.thinai-pill.mullai   { border-left: 4px solid #10b981; }
+.thinai-pill.marutham { border-left: 4px solid #f59e0b; }
+.thinai-pill.neithal  { border-left: 4px solid #06b6d4; }
+.thinai-pill.palai    { border-left: 4px solid #ef4444; }
+
+/* Pause rotation when user hovers over the lens container */
+.lens-container:hover .thinai-orbit-group,
+.lens-container:hover .thinai-pill,
+.lens-container:hover .center-globe-img {
+  animation-play-state: paused;
+}
+
+/* Animation Keyframes */
+@keyframes globeRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes thinaiOrbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes counterRotateSlot1 { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+@keyframes counterRotateSlot2 { 0% { transform: rotate(-72deg); } 100% { transform: rotate(-432deg); } }
+@keyframes counterRotateSlot3 { 0% { transform: rotate(-144deg); } 100% { transform: rotate(-504deg); } }
+@keyframes counterRotateSlot4 { 0% { transform: rotate(-216deg); } 100% { transform: rotate(-576deg); } }
+@keyframes counterRotateSlot5 { 0% { transform: rotate(-288deg); } 100% { transform: rotate(-648deg); } }
+
+/* Cards & Containers */
+.ecolens-card {
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+}
+
+.ecolens-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Badges */
+.badge-exceptional { background: #E6F7ED; color: #18A957; border: 1px solid #A3E6BD; }
+.badge-excellent   { background: #EDF8F3; color: #087C55; border: 1px solid #95DBBC; }
+.badge-good        { background: #E6F6F7; color: #008C95; border: 1px solid #A1E5EA; }
+.badge-moderate    { background: #E6F3F7; color: #087CA3; border: 1px solid #9EDDF0; }
+.badge-low         { background: #FEF3C7; color: #D97706; border: 1px solid #FCD34D; }
+.badge-poor        { background: #FEE2E2; color: #DC2626; border: 1px solid #FCA5A5; }
+
+.badge-tag {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Factor Breakdown Grid */
+.factor-card {
+  background: var(--eco-surface);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.factor-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted-text);
+  text-transform: uppercase;
+}
+
+.factor-score-val {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--deep-navy);
+}
+
+/* Score Ring Progress */
+.score-ring-svg {
+  transform: rotate(-90deg);
+}
+
+.score-ring-circle-bg {
+  stroke: var(--eco-surface);
+}
+
+.score-ring-circle-fg {
+  stroke-dasharray: 283;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+/* Winner Banner */
+.winner-banner {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border: 2px solid #F59E0B;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  background: var(--deep-navy);
+  color: var(--white);
+  padding: 3rem 1.5rem 1.5rem 1.5rem;
+}
+
+footer a {
+  color: #A7F3D0;
+}
+
+footer a:hover {
+  color: var(--white);
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.4rem; }
+  .lens-container { width: 260px; height: 260px; }
+  .lens-score-val { font-size: 3rem; }
+}
